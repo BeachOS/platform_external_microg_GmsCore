@@ -1,0 +1,22 @@
+android {
+    signingConfigs {
+        beach {
+            // Generated from our microG key
+            // 5449: Sign microG APKs with our own key at build time
+            // https://review.beachos.org/c/BeachOS/platform_prebuilts_beach_microg/+/5449
+            storeFile file('microg.jks')
+            storePassword 'android'
+            keyAlias 'android'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.beach
+        }
+        release {
+            signingConfig signingConfigs.beach
+        }
+    }
+}
